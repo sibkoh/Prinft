@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunoz-d <amunoz-d@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 10:50:59 by amunoz-d          #+#    #+#             */
-/*   Updated: 2022/05/31 11:59:24 by amunoz-d         ###   ########.fr       */
+/*   Created: 2022/06/01 11:18:57 by amunoz-d          #+#    #+#             */
+/*   Updated: 2022/06/01 11:59:40 by amunoz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
-
-#include "Libft/libft.h"
 #include "libftprintf.h"
-#include <stdarg.h>
 
-int	ft_printf(char const *format, ...);
+int	ft_print_str(char *str)
+{
+	char			*cpy;
+	unsigned	int	j;
 
-void	ft_putchar(char c);
-int	ft_print_str(char *str);
-int	ft_print_chr(int c);
+	j = 0;
+	cpy = str;
 
-#endif
+	while (*cpy)
+	{
+		ft_putchar(*cpy);
+		cpy++;
+		j++;
+	}
+	return (j);
+}
