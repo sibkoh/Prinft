@@ -1,6 +1,9 @@
 SRCS		= 	ft_putchar.c \
 				ft_print_str.c \
 				ft_print_chr.c \
+				ft_print_int.c \
+				ft_print_putnbr.c \
+				ft_print_hex.c \
 
 OBJS		= $(SRCS:.c=.o)
 OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
