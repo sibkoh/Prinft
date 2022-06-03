@@ -6,7 +6,7 @@
 /*   By: amunoz-d <amunoz-d@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 09:59:18 by amunoz-d          #+#    #+#             */
-/*   Updated: 2022/06/02 12:43:01 by amunoz-d         ###   ########.fr       */
+/*   Updated: 2022/06/03 12:20:45 by amunoz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 int	main(int ac, char **av)
 {
-	ft_printf("%x\n", ft_atoi(av[ac - 1]));
-	printf("%x\n", ft_atoi(av[ac - 1]));
-	return(0);
+	char	*s;
+
+	s = "hola Mundo";
+	ft_printf("%p\n", s);
+	printf("%p\n", s);
+	return (0);
 }
 
 int	ft_recognize_arg(char c, va_list arg)
@@ -31,38 +34,42 @@ int	ft_recognize_arg(char c, va_list arg)
 	if (c == 'd' || c == 'i')
 		i = ft_print_int(va_arg(arg, int));
 	if (c == 'u')
-		ft_print_putnbr(va_arg(arg, unsigned int));
+		i = ft_print_putnbr(va_arg(arg, unsigned int));
 	if (c == 'x')
-		ft_print_hex(va_arg(arg, unsigned int));
+		i = ft_print_hex(va_arg(arg, unsigned int));
+	if (c == 'X')
+		i = ft_print_hex2(va_arg(arg, unsigned int));
+	if (c == 'p')
+		i = ft_print_ptr(va_arg(arg, unsigned long long));
+	printf("%d", i);
 	return (i);
 }
 
 int	ft_printf(char const *format, ...)
 {
-	char const 		*traverse;
-	unsigned	int	i;
-	unsigned	int	j;
+	char const		*traverse;
+	unsigned int	i;
+	unsigned int	j;
 	va_list			arg;
-	
+
 	i = 0;
 	j = 0;
 	va_start(arg, format);
 	traverse = format;
-	while(*traverse)
+	while (*traverse)
 	{
 		if (*traverse != '%')
 		{
 			putchar(*traverse);
-			traverse++;
 			i++;
 		}
 		else
 		{
 			traverse++;
 			j += ft_recognize_arg(*traverse, arg);
+		}
 		traverse++;
 	}
-	}
+	va_end(arg);
 	return (i + j);
 }
-

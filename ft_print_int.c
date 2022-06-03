@@ -6,7 +6,7 @@
 /*   By: amunoz-d <amunoz-d@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 10:02:05 by amunoz-d          #+#    #+#             */
-/*   Updated: 2022/06/02 10:37:15 by amunoz-d         ###   ########.fr       */
+/*   Updated: 2022/06/03 10:22:19 by amunoz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_print_int(int num)
 {
-	char		*strnum;
+	char			*strnum;
 	unsigned int	i;
 
 	i = 0;
