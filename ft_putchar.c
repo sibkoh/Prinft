@@ -6,11 +6,11 @@
 /*   By: amunoz-d <amunoz-d@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 09:53:06 by amunoz-d          #+#    #+#             */
-/*   Updated: 2022/06/01 09:55:57 by amunoz-d         ###   ########.fr       */
+/*   Updated: 2022/06/13 10:31:44 by amunoz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_putchar(char c)
 {

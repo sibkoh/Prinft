@@ -6,11 +6,11 @@
 /*   By: amunoz-d <amunoz-d@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:06:03 by amunoz-d          #+#    #+#             */
-/*   Updated: 2022/06/03 10:24:07 by amunoz-d         ###   ########.fr       */
+/*   Updated: 2022/06/13 10:25:29 by amunoz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_print_putnbr(unsigned int num)
 {

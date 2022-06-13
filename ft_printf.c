@@ -6,12 +6,12 @@
 /*   By: amunoz-d <amunoz-d@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 09:59:18 by amunoz-d          #+#    #+#             */
-/*   Updated: 2022/06/03 12:20:45 by amunoz-d         ###   ########.fr       */
+/*   Updated: 2022/06/13 12:53:20 by amunoz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-
+#include "ft_printf.h"
+/*
 int	main(int ac, char **av)
 {
 	char	*s;
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 	printf("%p\n", s);
 	return (0);
 }
-
+*/
 int	ft_recognize_arg(char c, va_list arg)
 {
 	unsigned int	i;
@@ -41,13 +41,17 @@ int	ft_recognize_arg(char c, va_list arg)
 		i = ft_print_hex2(va_arg(arg, unsigned int));
 	if (c == 'p')
 		i = ft_print_ptr(va_arg(arg, unsigned long long));
-	printf("%d", i);
+	if (c == '%')
+	{
+		write(1, "%", 1);
+		return (1);
+	}
 	return (i);
 }
 
 int	ft_printf(char const *format, ...)
 {
-	char const		*traverse;
+	char const		*s;
 	unsigned int	i;
 	unsigned int	j;
 	va_list			arg;
@@ -55,20 +59,20 @@ int	ft_printf(char const *format, ...)
 	i = 0;
 	j = 0;
 	va_start(arg, format);
-	traverse = format;
-	while (*traverse)
+	s = format;
+	while (*s)
 	{
-		if (*traverse != '%')
+		if (*s == '%')
 		{
-			putchar(*traverse);
-			i++;
+			s++;
+			j += ft_recognize_arg(*s, arg);
 		}
 		else
 		{
-			traverse++;
-			j += ft_recognize_arg(*traverse, arg);
+			ft_putchar(*s);
+			i++;
 		}
-		traverse++;
+		s++;
 	}
 	va_end(arg);
 	return (i + j);

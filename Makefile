@@ -6,6 +6,7 @@ SRCS		= 	ft_putchar.c \
 				ft_print_hex.c \
 				ft_print_hex2.c \
 				ft_print_ptr.c \
+				ft_printf.c \
 
 OBJS		= $(SRCS:.c=.o)
 OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
@@ -17,9 +18,11 @@ RM			= rm -f
 all: $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -I Libft -o $@
+	$(CC) $(CFLAGS) -c $< -I Libft -o $(<:.c=.o)
 
 $(NAME): $(OBJS)
+	@make -C Libft
+	@cp Libft/libft.a $(NAME)
 	ar -rc $(NAME) $(OBJS)
 
 clean:
@@ -28,6 +31,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	@make -sC ./Libft/ clean
 
 re: fclean all
 

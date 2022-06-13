@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunoz-d <amunoz-d@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 10:50:59 by amunoz-d          #+#    #+#             */
-/*   Updated: 2022/06/03 12:36:19 by amunoz-d         ###   ########.fr       */
+/*   Updated: 2022/06/13 12:34:20 by amunoz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "Libft/libft.h"
-# include "libftprintf.h"
 # include <stdarg.h>
 
 int		ft_printf(char const *format, ...);
